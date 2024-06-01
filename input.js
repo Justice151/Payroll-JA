@@ -8,11 +8,12 @@ function calculateTotalPay(e) {
     const hoursWorked = parseFloat(document.getElementById('hoursWorked').value);
     const workDescription = document.getElementById('workDescription').value;
     const hourlyRate = parseFloat(document.getElementById('hourlyRate').value);
+    const workDate = document.getElementById('workDate').value;
     const totalPayment = hoursWorked * hourlyRate;
 
     let entries = JSON.parse(localStorage.getItem('workEntries')) || [];
 
-    entries.push({ workerName, hoursWorked, workDescription, hourlyRate, totalPayment });
+    entries.push({ workerName, hoursWorked, workDescription, hourlyRate, workDate, totalPayment });
 
     localStorage.setItem('workEntries', JSON.stringify(entries));
 
