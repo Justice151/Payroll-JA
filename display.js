@@ -1,6 +1,7 @@
 // display.js
 document.addEventListener('DOMContentLoaded', () => {
     displayEntries();
+    document.getElementById('inputForm').addEventListener('submit', addEntry);
     document.getElementById('removeForm').addEventListener('submit', removeTransaction);
 });
 
@@ -26,6 +27,26 @@ function displayEntries() {
         const actionCell = row.insertCell(6);
         actionCell.appendChild(removeButton);
     });
+}
+
+function addEntry(e) {
+    e.preventDefault();
+
+    const workerName = document.getElementById('workerName').value;
+    const hoursWorked = parseFloat(document.getElementById('hoursWorked').value);
+    const workDescription = document.getElementById('workDescription').value;
+    const hourlyRate = parseFloat(document.getElementById('hourlyRate').value);
+    const workDate = document.getElementById('workDate').value;
+    const totalPayment = hoursWorked * hourlyRate;
+
+    let entries = JSON.parse(localStorage.getItem('workEntries')) || [];
+
+    entries.push({ workerName, hoursWorked, workDescription, hourlyRate, workDate, totalPayment });
+
+    localStorage.setItem('workEntries', JSON.stringify(entries));
+
+    document.getElementById('inputForm').reset();
+    displayEntries();
 }
 
 function removeTransactionByIndex(index) {
