@@ -1,23 +1,5 @@
 // script.js
-document.getElementById('workForm').addEventListener('submit', addEntry);
-
-function addEntry(e) {
-    e.preventDefault();
-    
-    const workerName = document.getElementById('workerName').value;
-    const hoursWorked = parseFloat(document.getElementById('hoursWorked').value);
-    const workDescription = document.getElementById('workDescription').value;
-    const hourlyRate = parseFloat(document.getElementById('hourlyRate').value);
-    const totalPayment = hoursWorked * hourlyRate;
-
-    const entry = { workerName, hoursWorked, workDescription, hourlyRate, totalPayment };
-    let entries = JSON.parse(localStorage.getItem('workEntries')) || [];
-    entries.push(entry);
-    localStorage.setItem('workEntries', JSON.stringify(entries));
-
-    displayEntries();
-    document.getElementById('workForm').reset();
-}
+document.addEventListener('DOMContentLoaded', displayEntries);
 
 function displayEntries() {
     const entries = JSON.parse(localStorage.getItem('workEntries')) || [];
@@ -33,6 +15,3 @@ function displayEntries() {
         row.insertCell(4).innerText = entry.totalPayment.toFixed(2);
     });
 }
-
-// Initial display of entries
-displayEntries();
