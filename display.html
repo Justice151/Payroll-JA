@@ -17,6 +17,7 @@
                 <th>Hourly Rate</th>
                 <th>Date</th>
                 <th>Total Payment</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -24,6 +25,24 @@
         </tbody>
     </table>
     <button onclick="window.location.href='index.html'">Back to Main Page</button>
+
+    <h2>Remove Transaction</h2>
+    <form id="removeForm">
+        <label for="removeWorkerName">Worker Name:</label>
+        <input type="text" id="removeWorkerName" name="removeWorkerName" required>
+
+        <label for="removeDate">Date:</label>
+        <input type="date" id="removeDate" name="removeDate" required>
+
+        <label for="removeDescription">Description:</label>
+        <input type="text" id="removeDescription" name="removeDescription" required>
+
+        <label for="removeAmount">Amount to Remove:</label>
+        <input type="number" id="removeAmount" name="removeAmount" required>
+
+        <button type="submit">Remove Amount</button>
+    </form>
+
     <script src="display.js"></script>
 </body>
 </html>
