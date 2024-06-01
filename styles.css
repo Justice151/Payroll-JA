@@ -1,13 +1,15 @@
-/* styles.css */
+/* Global Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
 }
 
+/* Center Headings */
 h1, h2 {
     text-align: center;
 }
 
+/* Form Styles */
 form {
     max-width: 600px;
     margin: auto;
@@ -30,7 +32,6 @@ input {
 }
 
 button {
-    display: block;
     width: 100%;
     padding: 10px;
     background-color: #28a745;
@@ -39,12 +40,14 @@ button {
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #218838;
 }
 
+/* Table Styles */
 table {
     width: 100%;
     border-collapse: collapse;
