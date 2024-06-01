@@ -11,22 +11,10 @@ function calculateTotalPay(e) {
     const totalPayment = hoursWorked * hourlyRate;
 
     let entries = JSON.parse(localStorage.getItem('workEntries')) || [];
-    let workerExists = false;
 
-    entries = entries.map(entry => {
-        if (entry.workerName === workerName) {
-            workerExists = true;
-            entry.hoursWorked += hoursWorked;
-            entry.totalPayment += totalPayment;
-        }
-        return entry;
-    });
-
-    if (!workerExists) {
-        entries.push({ workerName, hoursWorked, workDescription, hourlyRate, totalPayment });
-    }
+    entries.push({ workerName, hoursWorked, workDescription, hourlyRate, totalPayment });
 
     localStorage.setItem('workEntries', JSON.stringify(entries));
 
-    document.getElementById('totalPay').innerText = `Total Pay for ${workerName}: $${entries.find(entry => entry.workerName === workerName).totalPayment.toFixed(2)}`;
+    document.getElementById('totalPay').innerText = `Total Pay for ${workerName}: $${totalPayment.toFixed(2)}`;
 }
