@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Worker Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Input Worker Details</h1>
+    <form id="inputForm">
+        <label for="workerName">Worker Name:</label>
+        <input type="text" id="workerName" name="workerName" required>
+
+        <label for="hoursWorked">Hours Worked:</label>
+        <input type="number" id="hoursWorked" name="hoursWorked" required>
+
+        <label for="hourlyRate">Hourly Rate:</label>
+        <input type="number" id="hourlyRate" name="hourlyRate" required>
+
+        <button type="submit">Calculate Total Pay</button>
+    </form>
+
+    <h2>Total Pay</h2>
+    <p id="totalPay"></p>
+
+    <button onclick="window.location.href='index.html'">Back to Work Entries</button>
+
+    <script src="input.js"></script>
+</body>
+</html>
